@@ -50,6 +50,7 @@ const PROJECTS = [
     badge: "🏆 Best Creative Thesis",
     color: "#3b82f6",
     featured: true,
+    minor: false,
   },
   {
     title: "HanStyle – React Frontend",
@@ -60,6 +61,7 @@ const PROJECTS = [
     highlights: [],
     color: "#8b5cf6",
     featured: false,
+    minor: false,
   },
   {
     title: "NewSilo – Mini Web App",
@@ -70,6 +72,7 @@ const PROJECTS = [
     highlights: [],
     color: "#06b6d4",
     featured: false,
+    minor: false,
   },
   {
     title: "Personal Portfolio Website",
@@ -80,8 +83,27 @@ const PROJECTS = [
     highlights: [],
     color: "#10b981",
     featured: false,
+    minor: false,
   },
 ];
+
+const MINOR_PROJECT = {
+  title: "Transmission Line Fault Detection",
+  tech: ["React.js", "Python", "JavaScript", "HTML", "CSS", "MATLAB", "Simulink", "Supabase"],
+  year: "2025 – 2026",
+  description:
+    "Mini project for B.Tech in Electrical & Electronics Engineering. A web-based simulation system that detects, classifies, and visualizes faults in a three-phase transmission line in real time.",
+  highlights: [
+    "Detects LG, LL, LLG, LLL faults and overvoltage/undervoltage conditions",
+    "React.js dashboard with live phase indicators, fault alerts & severity classification",
+    "MATLAB/Simulink used for modeling and wavelet-based (DWT) signal validation",
+    "Fault log management with timestamp, affected phase, and export to JSON",
+  ],
+  badge: "⚡ Minor · EEE Dept.",
+  color: "#f59e0b",
+  guide: "Ms. Anooja C.L, Asst. Professor – Dept. of EEE",
+  institution: "SNM Institute of Management & Technology, Maliankara",
+};
 
 const SKILLS = {
   Languages: ["C", "Python", "HTML"],
@@ -115,7 +137,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState("About");
   const [menuOpen, setMenuOpen] = useState(false);
   const [typedText, setTypedText] = useState("");
-  const roles = ["Computer Science Engineer", "Frontend Developer", "AI Enthusiast", "IoT Builder"];
+  const roles = ["Computer Science Engineer", "Minor in EEE", "Frontend Developer", "AI Enthusiast", "IoT Builder"];
   const roleIndex = useRef(0);
   const charIndex = useRef(0);
   const deleting = useRef(false);
@@ -289,13 +311,19 @@ export default function App() {
                 Kerala. I specialize in building full-stack web applications powered by AI and embedded systems.
               </p>
               <p>
-                My flagship project — the <strong>AI Smart Ward System</strong> — integrates IoT sensors, real-time vitals monitoring,
+                Alongside my <strong>B.Tech in Computer Science</strong>, I'm also pursuing a{" "}
+                <strong>Minor in Electrical & Electronics Engineering</strong> — where I built a
+                React + Python based <em>Transmission Line Fault Detection System</em> that simulates
+                and classifies real-world power grid faults.
+              </p>
+              <p>
+                My CS flagship — the <strong>AI Smart Ward System</strong> — integrates IoT sensors, real-time vitals monitoring,
                 and a Groq-powered voice SOS, earning recognition as{" "}
                 <strong>Best Creative Thesis potential</strong> at my institution.
               </p>
               <p>
-                Beyond code, I love bridging hardware and software — whether it's programming Arduino boards or
-                deploying AI APIs that actually solve real problems in healthcare.
+                I love bridging hardware and software — programming Arduino boards, deploying AI APIs,
+                or simulating power systems using MATLAB/Simulink.
               </p>
               <div className="contact-chips">
                 <a href="mailto:riyatj123@gmail.com" className="contact-chip">✉ riyatj123@gmail.com</a>
@@ -308,6 +336,7 @@ export default function App() {
                 { icon: "🧠", title: "AI & ML", desc: "Groq API, Gemini Flash, anomaly detection" },
                 { icon: "⚡", title: "IoT & Hardware", desc: "ESP32, Arduino, MAX30100, LM35 sensors" },
                 { icon: "🌐", title: "Full Stack", desc: "React, Django, Node.js, MySQL, MongoDB" },
+                { icon: "🔌", title: "Minor – EEE", desc: "Transmission line faults, MATLAB/Simulink, power systems" },
               ].map((card) => (
                 <div className="about-card" key={card.title}>
                   <span className="about-card-icon">{card.icon}</span>
@@ -327,7 +356,7 @@ export default function App() {
         <div className="container">
           <div className="section-header reveal">
             <span className="section-tag">02 / Experience</span>
-            <h2>Work History</h2>
+            <h2>Internship History</h2>
           </div>
           <div className="timeline">
             {EXPERIENCE.map((exp, i) => (
@@ -388,6 +417,44 @@ export default function App() {
               </div>
             ))}
           </div>
+
+          {/* Minor Project – EEE */}
+          <div className="minor-section reveal">
+            <div className="minor-header">
+              <div className="minor-label-row">
+                <span className="minor-icon">🔌</span>
+                <div>
+                  <span className="minor-dept-tag">Minor · Electrical &amp; Electronics Engineering</span>
+                  <p className="minor-dept-sub">APJ Abdul Kalam Technological University · 2025–2026</p>
+                </div>
+              </div>
+            </div>
+            <div className="minor-card" style={{ "--accent": MINOR_PROJECT.color }}>
+              <div className="minor-card-left">
+                <div className="proj-badge">{MINOR_PROJECT.badge}</div>
+                <span className="proj-year">{MINOR_PROJECT.year}</span>
+                <h3 className="proj-title">{MINOR_PROJECT.title}</h3>
+                <p className="proj-desc">{MINOR_PROJECT.description}</p>
+                <div className="minor-meta">
+                  <span className="minor-meta-item">👩‍🏫 {MINOR_PROJECT.guide}</span>
+                  <span className="minor-meta-item">🏛 {MINOR_PROJECT.institution}</span>
+                </div>
+              </div>
+              <div className="minor-card-right">
+                <h4 className="minor-highlights-title">Key Features</h4>
+                <ul className="proj-highlights">
+                  {MINOR_PROJECT.highlights.map((h, j) => (
+                    <li key={j}>{h}</li>
+                  ))}
+                </ul>
+                <div className="proj-tech" style={{ marginTop: "20px" }}>
+                  {MINOR_PROJECT.tech.map((t) => (
+                    <span key={t} className="tech-tag amber">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -427,7 +494,7 @@ export default function App() {
                 institution: "SNM Institute of Management & Technology",
                 board: "APJ Abdul Kalam Technological University",
                 year: "Oct 2022 – May 2026",
-                grade: "CGPA: 6.75 / 10",
+                grade: "CGPA : 6.9",
                 icon: "🎓",
                 primary: true,
               },
@@ -504,7 +571,7 @@ export default function App() {
                 { label: "Email", value: "riyatj123@gmail.com", href: "mailto:riyatj123@gmail.com", icon: "✉" },
                 { label: "Phone", value: "+91-8943690129", href: "tel:+918943690129", icon: "📱" },
                 { label: "GitHub", value: "github.com/riyatj", href: "https://github.com/riyatj", icon: "⌥" },
-                { label: "LinkedIn", value: "linkedin.com/in/riya-tj", href: "https://linkedin.com/in/riya-tj", icon: "in" },
+                { label: "LinkedIn", value: "linkedin.com/in/riya-tj", href: "https://www.linkedin.com/in/riya-t-j-bba335275/", icon: "in" },
               ].map((link) => (
                 <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="contact-card">
                   <span className="contact-icon">{link.icon}</span>
