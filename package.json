@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
 
- "homepage": "https://riyatj.github.io/my-portfolio",
+  "homepage": "https://riyatj.github.io/my-portfolio",
 
   "scripts": {
     "dev": "vite",
