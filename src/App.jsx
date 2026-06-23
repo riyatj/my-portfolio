@@ -137,7 +137,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState("About");
   const [menuOpen, setMenuOpen] = useState(false);
   const [typedText, setTypedText] = useState("");
-  const roles = ["Computer Science Engineer", "Minor in EEE", "Frontend Developer", "AI Enthusiast", "IoT Builder"];
+  const roles = ["COMPUTER SCIENCE ENGINEER ", " MINOR IN EEE", "FRONTEND DEVELOPER"];
   const roleIndex = useRef(0);
   const charIndex = useRef(0);
   const deleting = useRef(false);
@@ -201,7 +201,7 @@ export default function App() {
       {/* Navbar */}
       <nav className="navbar">
         <div className="nav-logo" onClick={() => scrollTo("hero")}>
-          riya<span className="accent">.</span>tj
+          RIYA <span className="accent"></span>TJ
         </div>
         <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
           {NAV_LINKS.map((link) => (
@@ -237,7 +237,7 @@ export default function App() {
             <span className="badge-dot" /> Open to Opportunities
           </div>
           <h1 className="hero-name reveal">
-            Riya <span className="gradient-text">TJ</span>
+            RIYA <span className="gradient-text">TJ</span>
           </h1>
           <div className="hero-role reveal">
             <span className="typed">{typedText}</span>
