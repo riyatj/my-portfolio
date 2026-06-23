@@ -494,7 +494,7 @@ export default function App() {
                 institution: "SNM Institute of Management & Technology",
                 board: "APJ Abdul Kalam Technological University",
                 year: "Oct 2022 – May 2026",
-                grade: "CGPA: 6.9/10",
+                grade: "CGPA: 6.9",
                 icon: "🎓",
                 primary: true,
               },
